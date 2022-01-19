@@ -7,12 +7,7 @@ output = document['output']
 selectType = document['select-type']
 selectCalculated = document['select-calculated']
 
-# Setiap bangun datar dan bangun ruang memiliki key 'Keliling' dan 'Luas' 
-# yang masing-masing value-nya berisi key 'formula' dan informasi input yang diperlukan (input1, input2, input3, input4).
-# Parameter x, y, atau z pada lambda formula adalah parameter yang tidak terpakai, 
-# karena pada fungsi formula (dibawah) secara default diberikan empat argumen dari setiap input (input1, input2, input3, input4).
-
-# Dictionary Bangun Datar
+# Dictionary Suhu
 type1 = {'Celcius': {'Celcius': {'Rumus': lambda suhu: suhu, 'input1': 'Masukkan Suhu'},
                            'Farenheit': {'Rumus': lambda suhu: (suhu * 9/5) + 32, 'input1': 'Masukkan Suhu'},
                            'Kelvin': {'Rumus': lambda suhu: suhu + 273.15, 'input1': 'Masukkan Suhu'},
@@ -30,7 +25,7 @@ type1 = {'Celcius': {'Celcius': {'Rumus': lambda suhu: suhu, 'input1': 'Masukkan
                            'Kelvin': {'Rumus': lambda suhu: (suhu * 5/4) + 273.15, 'input1': 'Masukkan Suhu'},
                            'Reamur': {'Rumus': lambda suhu: suhu, 'input1': 'Masukkan Suhu'}}}
 
-# Fungsi yang akan dijalankan ketika pilihan bangun datar dan ruang diubah
+# Fungsi yang akan dijalankan ketika pilihan suhu diubah
 def selectTypeAction(ev):
     x = selectType.value
     # Reset Input Field
@@ -59,7 +54,7 @@ def getNum(x):
         else:
             return temp
 
-# Fungsi untuk memanggil formula pada dictionary
+# Fungsi untuk memanggil rumus pada dictionary
 def Rumus(x, num1):
     y = selectCalculated.value
     for key in type1.keys():
@@ -80,7 +75,7 @@ def keyEnter(ev):
     if traceKey == 'Enter':
         main(0)
 
-selectType.bind('change', selectTypeAction) # Ketika pilihan bangun datar dan ruang berubah, maka akan menjalankan fungsinya
+selectType.bind('change', selectTypeAction) # Ketika pilihan suhu berubah, maka akan menjalankan fungsinya
 button.bind('click', main) # Memanggil 'Fungsi Main' ketika button di-click
 
 # Mengarahakan ke 'Fungsi keyEnter' ketiak 'enter' ditekan pada salah satu input field
