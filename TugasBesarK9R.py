@@ -28,29 +28,27 @@ type1 = {'Celcius': {'Celcius': {'Rumus': lambda suhu: suhu, 'input1': 'Masukkan
 # Fungsi yang akan dijalankan ketika pilihan suhu diubah
 def selectTypeAction(ev):
     x = selectType.value
-    # Reset Input Field
+    
     for i in range(1, 5):
         input[str(i)].value = ''
         input[str(i)].disabled = False
 
-# Fungsi untuk mengubah string dari input ke int atau float
 def getNum(x):
     temp = x
-    # Convert string ke int
+
     try:
         temp = int(x)
-    # Jika convert string ke int gagal (ValueError), maka convert ke float
+
     except ValueError:
         temp = float(x)
     finally:
-        # Jika input (var temp) masih string (gagal convert ke int dan float), 
-        # maka munculkan alert dan return dengan variable kosong ('')
+
         if temp != '' and type(temp) is str:
             alert('Harap masukkan suhu')
             temp = ''
             input1.value = temp
             return temp
-        # Jika salah satu convert berhasil, maka return
+
         else:
             return temp
 
