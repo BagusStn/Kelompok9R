@@ -78,5 +78,5 @@ def keyEnter(ev):
 selectType.bind('change', selectTypeAction) # Ketika pilihan suhu berubah, maka akan menjalankan fungsinya
 button.bind('click', main) # Memanggil 'Fungsi Main' ketika button di-click
 
-# Mengarahakan ke 'Fungsi keyEnter' ketiak 'enter' ditekan pada salah satu input field
+# Mengarahakan ke 'Fungsi keyEnter' ketika 'enter' ditekan pada salah satu input field
 input.bind("keypress", keyEnter)
